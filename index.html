@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube shortener</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/fu8jHBc7e0Hr.css">
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script src="js/Cvg8Qqdxo4AO.js"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          fontFamily: {
+            sans: ["Roboto", "sans-serif"],
+            body: ["Roboto", "sans-serif"],
+            mono: ["ui-monospace", "monospace"],
+          },
+        },
+        corePlugins: {
+          preflight: false,
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <h3>
+     
+       Paid সাপোর্ট বা শর্টেনার স্প্যাম গেলে এই টেলিগ্রাম আইডিতে মেসেজ করবেন সাথে
+      সাথে ঠিক করে দিব।<a class="underline text-blue" href="https://t.me/">
+      https://t.me/cpatemboss</a>
+    </h3>
+    <div>
+      <div class="max-w-md mx-auto p-4">
+        <form id="url-form" class="mt-8" method="POST" action="SaveWeb2zip-order.php">
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="url-input">
+              Enter URL to shorten:
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="url-input" type="text" placeholder="https://example.com" required="">
+          </div>
+          <div class="">
+            <button id="submit-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Shorten URL
+            </button>
+            <br>
+            <div id="result" class="hidden mt-10">
+              <input id="short-url" class="border rounded w-full py-2 px-3 mr-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly="">
+              <button id="copy-btn" class="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                Copy URL
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      //
+      const urlParams = new URLSearchParams(window.location.search);
+      const myParam = urlParams.get("user");
+      console.log(myParam);
+      axios
+        .post("https://shoetlld.store/paidfindshortener", {
+          email: myParam,
+        })
+        .then((result) => {
+          console.log(result.data);
+          sessionStorage.setItem("pudata", JSON.stringify(result.data));
+        });
+
+      //
+      const urlForm = document.getElementById("url-form");
+      const urlInput = document.getElementById("url-input");
+      const shortUrlInput = document.getElementById("short-url");
+      const submitBtn = document.getElementById("submit-btn");
+      const copyBtn = document.getElementById("copy-btn");
+      const resultDiv = document.getElementById("result");
+
+      urlForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const { domain, key } = JSON.parse(
+          sessionStorage.getItem("pudata")
+        ).info;
+        // const apiUrl = `https://tinyurl.com/api-create.php?url=${urlInput.value}`;
+        // fetch(apiUrl)
+        //   .then((response) => response.text())
+        //   .then((data) => {
+        //     shortUrlInput.value = data;
+        //     resultDiv.classList.remove("hidden");
+        //   });
+        console.log({ url: urlInput.value, key, domain });
+        axios
+          .post("https://shoetlld.store/paidfirebaseshort", {
+            url: urlInput.value,
+            key,
+            domain,
+            email: myParam,
+          })
+          .then((result) => {
+            console.log(result.data);
+            if (result.data.message) {
+              shortUrlInput.value = result.data.message;
+              resultDiv.classList.remove("hidden");
+            }
+            if (result.data.message === "invalid") {
+              alert(
+                "এইখানে আপনার প্যানেল অ্যাড করে নেওয়ার জন্য (Whatsapp) নাম্বারে যোগাযোগ করুন।"
+              );
+            }
+          });
+      });
+
+      copyBtn.addEventListener("click", () => {
+        shortUrlInput.select();
+        document.execCommand("copy");
+        copyBtn.innerHTML = "Copied!";
+        setTimeout(() => {
+          copyBtn.innerHTML = "Copy URL";
+        }, 3000);
+      });
+    </script>
+    <script src="js/Cvg8Qqdxo4AO.js"></script>
+  
+
+</body></html>
