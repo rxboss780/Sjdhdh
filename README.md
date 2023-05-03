@@ -1,0 +1,7 @@
+const offerLink = "vnd.youtube://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbDZFTGVWTjhXSFNBQU9TUFFaX2F3R2w1eEJtUXxBQ3Jtc0tudlRLLUFmSFdLVU8tTGVac2lMX0ZSdlgxRFhoM1AwbzBBSGQ3dVBpUGMtamNGWGlOTEE2cEZSTUdHRzJhYzd2c3BWaWd2d0ZrOWMzMjdkM1NhWDNULUVUbjVHTFRMUU02dUswQVN2ZnRkQldZeDh6bw&q=https%3A%2F%2Fxblroo.paiatialdates.net%2F%3Futm_source%3Dda57dc555e50572d%26s1%3D187579%26s2%3D1785907%26j1%3D1&html_redirect=1";
+
+
+
+
+
+
